@@ -11,7 +11,7 @@ export default function ProductList() {
     useEffect(()=>{
         let productService = new ProductService()
         productService.getProducts().then(result=>setProducts(result.data.data)) //axios data verdiği için onun da datası
-    })
+    },[])
 
 
     return (
