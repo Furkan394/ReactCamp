@@ -2,8 +2,11 @@ import React from 'react'
 import ProductList from '../pages/ProductList'
 import Categories from './Categories'
 import { Grid } from 'semantic-ui-react'
+import { Route } from 'react-router'
+import ProductDetail from '../pages/ProductDetail'
+import CartDetail from '../pages/CartDetail'
 
-export default function Dashboard() {
+export default function Dashboard() { //exact tam path olacak //:id ile idye göre detay getirecek
     return (
         <div>
             <Grid>
@@ -12,7 +15,10 @@ export default function Dashboard() {
                         <Categories />
                     </Grid.Column>
                     <Grid.Column width={12}>
-                        <ProductList />
+                        <Route exact path="/" component={ProductList} />
+                        <Route exact path="/products" component={ProductList} />
+                        <Route path="/products/:name" component={ProductDetail} />
+                        <Route path="/cart" component={CartDetail} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
